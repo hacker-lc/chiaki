@@ -102,7 +102,7 @@ static void chiaki_opus_decoder_frame(uint8_t *buf, size_t buf_size, void *user)
 		return;
 	}
 
-	int r = opus_decode(decoder->opus_decoder, buf, (opus_int32)buf_size, decoder->pcm_buf, decoder->audio_header.frame_size, 0);
+	int r = 0;//opus_decode(decoder->opus_decoder, buf, (opus_int32)buf_size, decoder->pcm_buf, decoder->audio_header.frame_size, 0);
 	if(r < 1)
 		CHIAKI_LOGE(decoder->log, "Decoding audio frame with opus failed: %s", opus_strerror(r));
 	else if(decoder->frame_cb)
